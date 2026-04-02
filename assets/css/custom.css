@@ -1,0 +1,6 @@
+/* Force the content container wider */
+.main-content-wrap {
+  max-width: 1200px !important;
+  margin: 0 auto !important;
+  padding: 2rem !important;
+}
