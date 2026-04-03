@@ -11,7 +11,7 @@ Now let's see everything we've learned come together in a real project. **Nerfif
 
 <br>
 <p style="text-align: center;">
-  <img src="assets/nerfify-pipeline.png" alt="nerfify-pipeline" style="width: 90%;">
+  <img src="assets/nerfify.png" alt="nerfify-pipeline" style="width: 90%;">
 </p>
 <br>
 
@@ -45,37 +45,6 @@ Each agent has a clear **role**, a set of **tools**, and a specific **task** in 
 | **Reviewer** | Code Reviewer | `file_read/write`, `file_glob`, `web_search` | Review generated code for correctness |
 | **Tester** | Smoke Tester | `shell_command`, `file_read` | Install, import-check, and run 10-iteration training |
 | **Debugger** | Debug Specialist | `file_read/write`, `shell_command`, `web_search` | Diagnose and fix errors from failed tests |
-
----
-
-## Pipeline Flow
-<br>
-
-The pipeline runs as a **sequential CrewAI process** — each task completes before the next begins (with one parallel exception):
-
-```
-┌──────────┐     ┌────────────────────┐     ┌──────────┐
-│  Parser  │────▶│  Citation Recovery │────▶│ Planner  │
-│          │     │  (runs in parallel │     │          │
-│          │     │   with Planner)    │     │          │
-└──────────┘     └────────────────────┘     └──────────┘
-                                                  │
-                        ┌─────────────────────────┘
-                        ▼
-                  ┌──────────┐     ┌──────────┐     ┌──────────┐
-                  │  Coder   │────▶│ Reviewer │────▶│  Coder   │
-                  │ (generate│     │ (review) │     │  (fix)   │
-                  │  code)   │     │          │     │          │
-                  └──────────┘     └──────────┘     └──────────┘
-                                                         │
-                        ┌────────────────────────────────┘
-                        ▼
-                  ┌──────────┐     ┌──────────┐
-                  │  Tester  │────▶│ Debugger │ ←── loops up to 3x
-                  │ (smoke   │     │ (fix     │
-                  │  test)   │     │  errors) │
-                  └──────────┘     └──────────┘
-```
 
 ---
 
