@@ -141,14 +141,6 @@ image_path=/Users/kunalgupta/Downloads/lions.png"""
 ---
 
 ## 🧭 What's Next?
-We are done! Congratulations on completing the tutorial.
-You are now ready to build your own LLM agents and multi-agent frameworks.
+Now that we've seen how to build a multi-agent system from scratch, let's look at **open-source frameworks** that make this easier — and then see one in action on a real research project.
 
----
-
-## About the Author
-
-**Kunal Gupta**  
-[Website](https://kunalmgupta.github.io)  
-[Email](mailto:k5gupta@ucsd.edu)  
-[GitHub](https://github.com/KunalMGupta)
+➡️ [Open-Source Multi-Agent Frameworks](frameworks)
