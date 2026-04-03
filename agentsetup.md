@@ -35,7 +35,6 @@ class BaseAgentCore:
 
         ## Core LLM engine
         self.synthesizer = LLM(
-            name=self.name+'_agentCore',
             system_desc=f"""
 You are a helpful AI agent named {self.name}. Your role is {self.role}.
 You are supposed to assist the user in achieving their goals.
@@ -45,18 +44,16 @@ You are supposed to assist the user in achieving their goals.
 
         ## LLM to check user intent to terminate the session
         self.task_terminate = LLM(
-            name=self.name+'_taskTerminate',
             system_desc=f"""
 Based on the user's input, determine if the user wishes to end the session in case they don't have further queries. 
 Return True if the session needs to end, otherwise return False.
 """,
         response_format="json",
-        json_keys=["completed:bool"]
+        response_params={"completed":"bool"}
         )
 
         ## LLM to summarize the task
         self.task_summarizer = LLM(
-            name=self.name+'_taskSummarizer',
             system_desc=f"""
 Your task is to go through the stdout of the executed code and generate a response for the intended task, for which the code was executed.
 """,

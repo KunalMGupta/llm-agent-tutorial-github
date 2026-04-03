@@ -79,7 +79,6 @@ class Memory:
         self.max_memory = max_memory
         self.name = name
         self.summarization_llm = LLM(
-            name=self.name+'_summarization',
             system_desc=f"""
 Your task is to briefly summarize the conversation history without losing important information.
 Try to keep the summary concise and to the point.

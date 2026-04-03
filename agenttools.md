@@ -176,7 +176,6 @@ class AgentCoreWithToolUse(AgentCoreBase):
         
         ## LLM to check 
         self.synthesizer = LLM(
-            name=self.name+'_agentCore',
             system_desc=f"""
 You are a helpful AI agent named {self.name}. Your role is {self.role}.
 You are supposed to assist the user in achieving their goals.

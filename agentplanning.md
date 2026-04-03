@@ -188,7 +188,6 @@ Response of the code execution. If the code ran successfully, then give a brief 
 If the code execution failed, then simply return the error message.""")
             
         self.task_summarizer = LLM(
-            name=self.name+'_taskSummarizerPlanning',
             system_desc=f"""
 Your task is to go through the stdout of the executed code and generate a response for the intended task, for which the code was executed.
 """,

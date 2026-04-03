@@ -17,7 +17,7 @@ pip install sceneprogllm
 We’ll use GPT-4o (enabled by default). Make sure you have an OpenAI API key configured to run the examples below.
 ```python
 from sceneprogllm import LLM
-llm = LLM(name="text_bot", response_format="text")
+llm = LLM(response_format="text")
 response = llm("What is the capital of France?")
 print(response)
 
