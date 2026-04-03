@@ -182,14 +182,17 @@ class Planner:
         from pydantic import BaseModel, Field
 
         class TaskSummary(BaseModel):
-            status: bool = Field(description="Status of the code execution. Did the code run successfully? True if yes, False otherwise")
+            status: bool = Field(description="Status of the code execution. \
+            Did the code run successfully? True if yes, False otherwise")
             response: str = Field(description=f"""
-Response of the code execution. If the code ran successfully, then give a brief summary of the output that you see in light of the task. 
+Response of the code execution. If the code ran successfully, then give a 
+brief summary of the output that you see in light of the task. 
 If the code execution failed, then simply return the error message.""")
             
         self.task_summarizer = LLM(
             system_desc=f"""
-Your task is to go through the stdout of the executed code and generate a response for the intended task, for which the code was executed.
+Your task is to go through the stdout of the executed code and generate a 
+response for the intended task, for which the code was executed.
 """,
             response_format="pydantic",
             use_cache=False,
@@ -280,15 +283,19 @@ class Agent252D(Agent252DWithToolUse):
 In order to simulate challenges from the environment, I have purposfully disabled the DetectionTool. As we will see, without a planner, the agent will not be able to complete the task. 
 ```python
 agent1 = Agent252DWithToolUse(name="Agent252D", role="a helpful assistant")
-agent1("I have 12 apples. if I distribute them to all animals shown in the image, how many would each get? image_path=/Users/kunalgupta/Documents/llm-agent-tutorial/assets/lions.png", caller="User")
-# >> Agent252D: The task could not be completed because the detection tool required to identify the number of animals in the image is not implemented. 
-# Therefore, it is not possible to determine how many apples each animal would get without knowing the number of animals.
+agent1("I have 12 apples. if I distribute them to all animals shown in the image, \
+how many would each get? image_path=/Users/kunalgupta/Documents/llm-agent-tutorial/assets/lions.png", caller="User")
+# >> Agent252D: The task could not be completed because the detection tool required to identify 
+the number of animals in the image is not implemented. Therefore, it is not possible to determine how many 
+apples each animal would get without knowing the number of animals.
 ```
 
 However, we see that with the help of the planner, the agent is able to refine its code and complete the task. 
 ```python
 agent1 = Agent252D(name="Agent252D", role="a helpful assistant")
-agent1("I have 12 apples. if I distribute them to all animals shown in the image, how many would each get? image_path=/Users/kunalgupta/Documents/llm-agent-tutorial/assets/lions.png", caller="User")
+agent1("I have 12 apples. if I distribute them to all animals shown in the image, \
+how many would each get? image_path=/Users/kunalgupta/Documents/llm-agent-tutorial/ \
+assets/lions.png", caller="User")
 
 
 # >>> Agent252D:
@@ -297,7 +304,8 @@ agent1("I have 12 apples. if I distribute them to all animals shown in the image
 # {code}
 # Errror: 
 #     We are trying to achieve the following task:
-#     I have 12 apples. if I distribute them to all animals shown in the image, how many would each get? image_path=/Users/kunalgupta/Documents/llm-agent-tutorial/assets/lions.png
+#     I have 12 apples. if I distribute them to all animals shown in the image, how many 
+#     would each get? image_path=/Users/kunalgupta/Documents/llm-agent-tutorial/assets/lions.png
 #     Earlier, your wrote the following code to achieve the task:
     
 # # Use the DetectionTool to determine how many animals are in the image
@@ -331,7 +339,8 @@ agent1("I have 12 apples. if I distribute them to all animals shown in the image
 # Retrying...
 # Using code: 
 
-# # Since the DetectionTool is not implemented, we will use the VQATool as a fallback to determine the number of animals
+# # Since the DetectionTool is not implemented, we will use the VQATool as a 
+#   fallback to determine the number of animals
 # image_path = "/Users/kunalgupta/Documents/llm-agent-tutorial/assets/lions.png"
 
 # # Use the VQATool to ask how many animals are in the image
@@ -353,7 +362,8 @@ agent1("I have 12 apples. if I distribute them to all animals shown in the image
 # apples_per_animal
 
 
-# Agent252D: If you have 12 apples and distribute them evenly among 6 lions, each lion would receive 2 apples.
+# Agent252D: If you have 12 apples and distribute them evenly among 6 lions, 
+# each lion would receive 2 apples.
 ```
 
 ---

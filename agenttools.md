@@ -180,7 +180,8 @@ class AgentCoreWithToolUse(AgentCoreBase):
 You are a helpful AI agent named {self.name}. Your role is {self.role}.
 You are supposed to assist the user in achieving their goals.
 You will be writing a program in Python which may use the provided tools to help complete the task.
-Note that toolkit is already imported in the code, so you can use it directly. Absolutely, do not try to import any packages in the code.
+Note that toolkit is already imported in the code, so you can use it directly. 
+Absolutely, do not try to import any packages in the code.
 """,
             response_format="code",
         )
@@ -434,7 +435,8 @@ Let's try this on the lions image which we saw in the begining and see if it can
 ```python
 from agent import Agent252DWithToolUse
 agent1 = Agent252DWithToolUse(name="Agent252D", role="a helpful assistant")
-agent1("how many lions are there? image_path=/Users/kunalgupta/Documents/llm-agent-tutorial/assets/lions.png", caller="User")
+agent1("how many lions are there? image_path=/Users/kunalgupta/Documents/ \
+llm-agent-tutorial/assets/lions.png", caller="User")
 # >> Agent252D: There are six lions in the image.
 ```
 <br>

@@ -86,13 +86,16 @@ image_path=/Users/kunalgupta/Downloads/lions.png"""
 # >>> Supervisor:
 
 # # Step 1: Use Agent1 to analyze the image and identify the animals
-# image_analysis = team.Agent1("Identify the animals in the image located at /Users/kunalgupta/Downloads/lions.png", caller="Supervisor")
+# image_analysis = team.Agent1("Identify the animals in the image located at 
+# /Users/kunalgupta/Downloads/lions.png", caller="Supervisor")
 
 # # Step 2: Use Agent2 to create 3D models of the identified animals with unique names
-# animal_models = team.Agent2(f"Create 3D models of the following animals with unique names: {image_analysis}", caller="Supervisor")
+# animal_models = team.Agent2(f"Create 3D models of the following animals with 
+# unique names: {image_analysis}", caller="Supervisor")
 
 # # Step 3: Use Agent2 to assemble the 3D scene with the created models
-# scene_assembly = team.Agent2(f"Assemble a 3D scene using models: {animal_models}", caller="Supervisor")
+# scene_assembly = team.Agent2(f"Assemble a 3D scene using 
+# models: {animal_models}", caller="Supervisor")
 
 ```
 <div class="sketchfab-embed-wrapper">

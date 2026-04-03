@@ -211,13 +211,17 @@ agent.run()
 # >> Agent252D: The capital of India is New Delhi.
 # >> User: How are the relations between the above countries?
 # >> Agent252D: India and France share a strong and strategic relationship. 
-# The recent visit by Prime Minister Narendra Modi to France highlighted the deepening ties between the two countries. 
-# Both leaders, PM Modi and President Emmanuel Macron, emphasized that India and France could be influential in driving global transformation. 
-# Their discussions included strengthening defense partnerships, advancing nuclear cooperation, and enhancing economic corridors such as the India-Middle East-Europe Economic Corridor. 
-# They also discussed global issues like climate change and AI risks.
-#India and France are aligned in their approach to global challenges, seeking stronger engagement with the U.S. and China while maintaining independence from any single power. 
-# Although they aim to maintain positive ties with the U.S., both countries are cautious of the unpredictable policies of the Trump administration. 
-# Overall, India and France have a shared understanding of global challenges and are looking to collaborate on solutions.
+# The recent visit by Prime Minister Narendra Modi to France highlighted the deepening 
+# ties between the two countries. Both leaders, PM Modi and President Emmanuel Macron, 
+# emphasized that India and France could be influential in driving global transformation. 
+# Their discussions included strengthening defense partnerships, advancing nuclear 
+# cooperation, and enhancing economic corridors such as the India-Middle East-Europe 
+# Economic Corridor. They also discussed global issues like climate change and AI risks.
+# India and France are aligned in their approach to global challenges, seeking stronger 
+# engagement with the U.S. and China while maintaining independence from any single power. 
+# Although they aim to maintain positive ties with the U.S., both countries are cautious 
+# of the unpredictable policies of the Trump administration. Overall, India and France 
+# have a shared understanding of global challenges and are looking to collaborate on solutions.
 ```
 
 This is great! Finally, we have an agent that can remember the past interactions and also has a semantic memory to store the long-term knowledge. 

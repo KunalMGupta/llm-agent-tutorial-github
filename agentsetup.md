@@ -45,7 +45,8 @@ You are supposed to assist the user in achieving their goals.
         ## LLM to check user intent to terminate the session
         self.task_terminate = LLM(
             system_desc=f"""
-Based on the user's input, determine if the user wishes to end the session in case they don't have further queries. 
+Based on the user's input, determine if the user wishes to end the session 
+in case they don't have further queries. 
 Return True if the session needs to end, otherwise return False.
 """,
         response_format="json",
@@ -55,7 +56,8 @@ Return True if the session needs to end, otherwise return False.
         ## LLM to summarize the task
         self.task_summarizer = LLM(
             system_desc=f"""
-Your task is to go through the stdout of the executed code and generate a response for the intended task, for which the code was executed.
+Your task is to go through the stdout of the executed code and generate a response 
+for the intended task, for which the code was executed.
 """,
             response_format="text",
         )
@@ -73,7 +75,8 @@ We are trying to achieve the following task:
 {input}
 Following is the response generated:
 {response}
-Please summarize the output in light of the task. Be concise, don't have to tell me about various tool calls, etc. 
+Please summarize the output in light of the task. Be concise, 
+don't have to tell me about various tool calls, etc. 
 I am looking for a direct answer to the task. 
 However, feel free to include intermediate reasoning steps if they are there. 
 If there is a response that the input requests, please include that in the response.
@@ -153,7 +156,8 @@ agent1.run()
 # >> User: What is the capital of India?
 # >> Agent252D: The capital of India is New Delhi.
 # >> User: How are the relations between the above countries?
-# >> Agent252D: The response indicates that more information is needed to provide an answer about the relations between countries. 
+# >> Agent252D: The response indicates that more information is needed to 
+# provide an answer about the relations between countries. 
 # It asks for the specific countries in question to give a more detailed analysis of their relations.
 ```
 
