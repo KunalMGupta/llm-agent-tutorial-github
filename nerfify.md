@@ -378,9 +378,13 @@ Let's trace how tools get used across the pipeline:
 
 ---
 
-## About the Author
+## About the Authors
 
 **Kunal Gupta**  
 [Website](https://kunalmgupta.github.io)  
 [Email](mailto:k5gupta@ucsd.edu)  
 [GitHub](https://github.com/KunalMGupta)
+
+**Seemandhar Jain**  
+[Website](https://seemandhar.github.io)  
+[Email](mailto:Sejain@ucsd.edu)  
