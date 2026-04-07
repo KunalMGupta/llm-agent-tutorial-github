@@ -277,7 +277,7 @@ While it is fun to create simple tools, we are going to need some serious tools,
 </p>
 <br>
 
-Let's take a look at how to create an object detection tool using huggingface's <href="https://huggingface.co/docs/transformers/en/model_doc/owlvit">OWL-ViT</href> model. This is what the documentation says:
+Let's take a look at how to create an object detection tool using huggingface's [OWL-ViT](https://huggingface.co/docs/transformers/en/model_doc/owlvit) model. This is what the documentation says:
 
 ```python
 import requests
@@ -309,9 +309,9 @@ for box, score, text_label in zip(boxes, scores, text_labels):
     print(f"Detected {text_label} with confidence {round(score.item(), 3)} at location {box}")
     
 ```
-We can then create server side and client side code to serve this model. *Hint: I used ChatGPT to generate the respective codes.* 
+We can then create server side and client side code to serve this model. *Hint: I used ChatGPT to generate the respective programs.* 
 
-Server side code:
+Server side program:
 ```python
 import torch
 from flask import Flask, request, jsonify
@@ -373,7 +373,7 @@ if __name__ == "__main__":
     app.run(host="0.0.0.0", port=8899)
 ```
 
-Client side code implemented as a tool:
+Client side program implemented as a tool:
 ```python
 class DetectionTool(Tool):
     def __init__(self):
