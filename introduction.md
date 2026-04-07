@@ -6,15 +6,15 @@ nav_order: 1
 
 # Introduction to Large Language Models
 
-Large Language models (LLMs) like GPT-4 are incredibly powerful, and have shown great performance across a range of NLP and vision tasks. Today, they can be used as a drop-in replacement to perform a multitude of tasks like text classification, sentiment analysis, machine translation, etc. For the scope of this tutorial, we shall refer to such LLMs as **Naive LLMs**. 
+Large Language models (LLMs) like GPT-5 are incredibly powerful, and have shown great performance across a range of NLP and vision tasks. Today, they can be used as a drop-in replacement to perform a multitude of tasks like text classification, sentiment analysis, machine translation, etc. For the scope of this tutorial, we shall refer to such LLMs as **Naive LLMs**. 
 
 ![Rise of LLMs](assets/llm-intro.png) 
-For this tutorial, we'll use a minimal LLM wrapper I built for my own projects, called [`sceneprogllm`](https://github.com/kunalmgupta/sceneprogllm). It provides intuitive access to models like GPT-4o, Ollama, and more — and you’re welcome to use it in your own projects!
+For this tutorial, we'll use a minimal LLM wrapper I built for my own projects, called [`sceneprogllm`](https://github.com/kunalmgupta/sceneprogllm). It provides intuitive access to GPT-5 and you’re welcome to use it in your own projects!
 Install it with:
 ```bash
 pip install sceneprogllm
 ```
-We’ll use GPT-4o (enabled by default). Make sure you have an OpenAI API key configured to run the examples below.
+We’ll use GPT-5 (enabled by default). Make sure you have an OpenAI API key configured to run the examples below.
 ```python
 from sceneprogllm import LLM
 llm = LLM(response_format="text")
