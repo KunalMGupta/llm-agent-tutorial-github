@@ -56,6 +56,10 @@ header{display:flex;align-items:center;padding:0 1.5rem;height:44px;
 .hm span{display:flex;align-items:center;gap:.35rem}
 .hm .v{color:var(--text);font-weight:600}
 .timer{font-family:var(--font-mono);font-size:.8rem;color:var(--cyan);min-width:72px;text-align:right;font-weight:600}
+.play-pause{background:none;border:1.5px solid var(--border);border-radius:6px;width:28px;height:28px;
+  cursor:pointer;display:flex;align-items:center;justify-content:center;margin-left:.5rem;
+  color:var(--cyan);font-size:.9rem;transition:all .2s;flex-shrink:0}
+.play-pause:hover{border-color:var(--cyan);background:rgba(2,132,199,.06)}
 
 /* ═══ ORCHESTRATOR ═══ */
 #orch{display:flex;align-items:center;gap:.5rem;padding:.3rem 1.5rem;height:28px;
@@ -289,6 +293,7 @@ header{display:flex;align-items:center;padding:0 1.5rem;height:44px;
     </div>
     <div class="header-spacer"></div>
     <div class="timer" id="timer">0:00</div>
+    <button class="play-pause" id="play-pause" title="Pause / Play">⏸</button>
   </header>
   <div id="orch">
     <span class="o-icon">🧠</span>
@@ -346,6 +351,7 @@ const ED=[
 
 let startT=null,elapsed=0,fired=new Set(),nEls={},eEls={};
 let psnrStart1=null,psnrStart2=null,showGhostCurve=false;
+let paused=false,pausedAt=0,totalPaused=0;
 
 // ── BUILD GRAPH ──
 function buildGraph(){
@@ -1016,7 +1022,8 @@ const TL=[
 
 // ── MAIN LOOP ──
 function tick(){
-  elapsed=(performance.now()-startT)/1000;
+  if(paused){requestAnimationFrame(tick);return}
+  elapsed=(performance.now()-startT-totalPaused)/1000;
   for(let i=0;i<TL.length;i++){if(!fired.has(i)&&elapsed>=TL[i].t){fired.add(i);TL[i].f()}}
   // Timer
   const m=Math.floor(elapsed/60),s=Math.floor(elapsed%60);
@@ -1030,6 +1037,19 @@ function tick(){
   updMetrics();
   if(trainPhase)updateTrain(trainPhase);
   if(elapsed<DUR+3)requestAnimationFrame(tick);
+}
+function togglePause(){
+  const btn=$('#play-pause');
+  if(paused){
+    totalPaused+=performance.now()-pausedAt;
+    // Adjust training phase start times so charts resume correctly
+    if(psnrStart1)psnrStart1+=performance.now()-pausedAt;
+    if(psnrStart2)psnrStart2+=performance.now()-pausedAt;
+    paused=false;btn.textContent='⏸';btn.title='Pause';
+  }else{
+    pausedAt=performance.now();
+    paused=true;btn.textContent='▶';btn.title='Play';
+  }
 }
 
 // ── INIT ──
@@ -1047,6 +1067,7 @@ function init(){
     },1000);
   },2400);
   $('#replay-btn').onclick=()=>location.reload();
+  $('#play-pause').onclick=togglePause;
 }
 init();
 </script>
