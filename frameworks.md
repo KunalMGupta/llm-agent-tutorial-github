@@ -345,6 +345,104 @@ The framework's job is to handle steps 2-5 automatically — parsing the LLM's t
 
 ---
 
+## Project Ideas: Multi-Agent Systems for Computer Vision
+<br>
+
+These frameworks really shine when applied to **computer vision** pipelines — tasks that are naturally decomposable into specialized stages. Here are project ideas at different difficulty levels, each designed around the multi-agent patterns we've covered.
+
+### 1. Paper2Code — Research Paper to Working Implementation
+
+> **Example:** [Nerfify](nerfify) — converts a vision paper (PDF) into a complete, trainable NeRFStudio codebase.
+
+| Agent | Role | Framework Pattern |
+|---|---|---|
+| **Parser** | Extract equations, architecture, and pseudocode from a PDF | Tool-use (shell, LLM cleaning) |
+| **Planner** | Design code architecture and dependency graph | Sequential handoff |
+| **Coder** | Generate implementation files | Heavy tool-use (file write, web search) |
+| **Tester** | Run smoke tests, catch shape mismatches | Shell execution |
+| **Debugger** | Diagnose and fix errors from test output | Feedback loop (test ↔ debug) |
+| **VLM Evaluator** | Render outputs, use a vision-language model to judge quality | Conditional loop (retrain if quality fails) |
+
+**Why it works as a multi-agent project:** Each stage requires different expertise and tools. The feedback loops (test→debug, VLM→retrain) map directly to LangGraph conditional edges or CrewAI task dependencies.
+
+---
+
+### 2. Scene Understanding & 3D Reconstruction Pipeline
+
+Build an end-to-end system that takes casual photos and produces a 3D reconstruction with quality guarantees.
+
+| Agent | Role |
+|---|---|
+| **Capture Validator** | Check input views for sufficient overlap, blur, and exposure |
+| **Depth Estimator** | Run monocular depth (ZoeDepth / Depth Anything) |
+| **Segmenter** | Run SAM2 to extract object masks |
+| **Reconstructor** | Run SfM + 3DGS/NeRF on the scene |
+| **Quality Inspector (VLM)** | Compare rendered novel views against inputs, flag artifacts |
+| **Refinement Agent** | Adjust hyperparameters or mask problem regions and re-train |
+
+**Framework fit:** LangGraph — the Quality Inspector creates a conditional loop back to Refinement, and the first three agents can run as parallel branches.
+
+---
+
+### 3. Automated Dataset Curation & Annotation
+
+Every CV project starts with data. Build agents that assemble a publication-ready dataset from scratch.
+
+| Agent | Role |
+|---|---|
+| **Scraper** | Collect images from web/videos given a text description |
+| **Filter** | Remove duplicates, blurry, or irrelevant images (CLIP-based) |
+| **Annotator** | Run detection/segmentation models for initial labels |
+| **VLM Verifier** | Review annotations using a vision-language model, flag errors |
+| **Human-in-the-Loop** | Present uncertain cases for human review |
+| **Exporter** | Package into COCO/YOLO format with train/val/test splits and stats |
+
+**Framework fit:** CrewAI — straightforward sequential pipeline with clear role-based agents. Good starter project.
+
+---
+
+### 4. Visual Debugging Agent for Training Runs
+
+Automate what CV researchers do manually: watch training, spot problems, and fix them.
+
+| Agent | Role |
+|---|---|
+| **Monitor** | Watch TensorBoard/W&B logs for anomalies (loss spikes, NaN, plateau) |
+| **Visualizer** | Render intermediate predictions at checkpoints |
+| **Diagnosis (LLM)** | Analyze loss curves + visual outputs, hypothesize issues |
+| **Fix Agent** | Modify config (learning rate, augmentation, etc.) and restart training |
+| **Comparison** | Side-by-side eval of runs, pick best checkpoint |
+
+**Framework fit:** LangGraph — the Monitor→Diagnosis→Fix→Monitor loop is a natural state machine with conditional edges for different failure modes.
+
+---
+
+### 5. Interior Design / Room Staging Agent
+
+Combine 3D understanding with generative models for a creative, visually impressive application.
+
+| Agent | Role |
+|---|---|
+| **Room Understanding** | Segment room layout, identify furniture, estimate geometry |
+| **Style Agent (LLM)** | Propose design changes based on user preferences |
+| **Generation** | Use inpainting/ControlNet to render proposed changes |
+| **Consistency Checker (VLM)** | Verify lighting, perspective, and style consistency across edits |
+| **Iteration Agent** | Take user feedback, refine the design |
+
+**Framework fit:** Claude Agent SDK — the conversational handoff pattern works well for iterative user-facing design workflows.
+
+---
+
+### Choosing a Project by Experience Level
+
+| Experience | Recommended Project | Why |
+|---|---|---|
+| **Beginner** | Dataset Curation (#3) | Concrete, useful, lower barrier to entry |
+| **Intermediate** | Visual Debugging (#4) or Interior Design (#5) | Teaches real training workflows or creative generation |
+| **Advanced** | Paper2Code (#1) or 3D Reconstruction (#2) | Full research pipeline, touches NLP + vision + evaluation |
+
+---
+
 ## 🧭 What's Next?
 Let's see a real multi-agent system in action! We'll look at **Nerfify** — a CrewAI pipeline that converts research papers into working code.
 
