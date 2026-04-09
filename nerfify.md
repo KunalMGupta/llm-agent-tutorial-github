@@ -1,7 +1,7 @@
 ---
 layout: default
 title: "Nerfify: Multi-Agent in Practice"
-nav_order: 11
+nav_order: 12
 ---
 
 # Nerfify: Multi-Agent System in Practice
