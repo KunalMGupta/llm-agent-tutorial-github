@@ -9,11 +9,19 @@ nav_order: 12
 
 Now let's see everything we've learned come together in a real project. **Nerfify** is a CrewAI-powered multi-agent pipeline that reads a research paper (PDF) and generates a complete, runnable [NeRFStudio](https://nerf.studio/) implementation — from parsing the paper all the way to smoke-testing the generated code.
 
-<br>
-<p style="text-align: center;">
-  <img src="assets/nerfify.png" alt="nerfify-pipeline" style="width: 90%;">
-</p>
-<br>
+<div style="display:flex;gap:1.5rem;align-items:flex-start;margin:1.5rem 0">
+  <div style="flex:1;min-width:0">
+    <p style="text-align:center;margin:0">
+      <img src="assets/nerfify.png" alt="nerfify-pipeline" style="width:100%">
+    </p>
+  </div>
+  <div style="flex-shrink:0;text-align:center">
+    <a href="assets/nerfify-demo.html" target="_blank" style="display:inline-block;padding:0.8rem 1.5rem;background:linear-gradient(135deg,#0284c7,#7c3aed);color:#fff;border-radius:10px;text-decoration:none;font-weight:700;font-size:0.95rem;box-shadow:0 4px 14px rgba(2,132,199,0.3);transition:transform 0.2s,box-shadow 0.2s">
+      ▶ Launch Interactive Demo
+    </a>
+    <div style="font-size:0.72rem;color:#64748b;margin-top:0.5rem">Opens a ~90s animated walkthrough<br>of the full Nerfify pipeline</div>
+  </div>
+</div>
 
 ---
 

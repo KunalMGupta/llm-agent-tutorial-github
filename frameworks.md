@@ -9,6 +9,24 @@ nav_order: 11
 
 Building multi-agent systems from scratch (like we did with Agent252D) teaches you the fundamentals, but in practice you'll want a framework that handles **orchestration**, **tool routing**, **memory**, and **agent communication** for you. Let's look at the three most popular options.
 
+<div style="display:flex;gap:1.2rem;justify-content:center;flex-wrap:wrap;margin:2rem 0 1.5rem">
+  <div style="text-align:center;padding:1.2rem 1.5rem;border-radius:12px;background:linear-gradient(135deg,#1a1a2e,#16213e);min-width:180px;flex:1;max-width:240px;border:1px solid #2a2a4a">
+    <div style="font-size:2.5rem;margin-bottom:0.4rem">🚢</div>
+    <div style="font-weight:700;font-size:1.1rem;color:#e94560">CrewAI</div>
+    <div style="font-size:0.75rem;color:#a0a0b8;margin-top:0.3rem">Role-based agent crews</div>
+  </div>
+  <div style="text-align:center;padding:1.2rem 1.5rem;border-radius:12px;background:linear-gradient(135deg,#1a1a2e,#16213e);min-width:180px;flex:1;max-width:240px;border:1px solid #2a2a4a">
+    <div style="font-size:2.5rem;margin-bottom:0.4rem">🔗</div>
+    <div style="font-weight:700;font-size:1.1rem;color:#00b4d8">LangGraph</div>
+    <div style="font-size:0.75rem;color:#a0a0b8;margin-top:0.3rem">State machine workflows</div>
+  </div>
+  <div style="text-align:center;padding:1.2rem 1.5rem;border-radius:12px;background:linear-gradient(135deg,#1a1a2e,#16213e);min-width:180px;flex:1;max-width:240px;border:1px solid #2a2a4a">
+    <div style="font-size:2.5rem;margin-bottom:0.4rem">🤖</div>
+    <div style="font-weight:700;font-size:1.1rem;color:#d4a574">Claude Agent SDK</div>
+    <div style="font-size:0.75rem;color:#a0a0b8;margin-top:0.3rem">Native tool-use agents</div>
+  </div>
+</div>
+
 ---
 
 ## What Do These Frameworks Give You?
