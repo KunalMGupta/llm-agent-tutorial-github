@@ -280,4 +280,17 @@ A stronger planner can produce more creative, realistic, and task-aware plans. I
 <p style="text-align: center;">
   <img src="assets/tools-for-planning.png" alt="interioragentpipeline" style="width: 90%;">
 </p>
+
+## Lesson #7: AI agents do not replace insight
+
+A final personal takeaway from building InteriorAgent is this:
+
+There is a lot of anxiety today around whether AI agents will replace engineers, or whether generative AI will make creators obsolete. My view is that real systems still require deep human insight.
+
+To solve meaningful problems, we need to understand the structure of the task, the strengths and limitations of our tools, and what a successful outcome actually looks like. AI agents can help us build faster, but they do not remove the need for judgment. In fact, context engineering makes the opposite clear: these systems still need to be carefully taught, guided, and aligned to produce outcomes that humans actually value.
+
+So while AI agents may automate parts of the workflow, there will always be a need for dedicated, thoughtful, and creative people to design better systems, evaluate their outputs, and push them toward solving real problems.
+
+As technology becomes more democratized, human insight does not disappear. It becomes the foundation that makes these systems useful.
+
 <br>
